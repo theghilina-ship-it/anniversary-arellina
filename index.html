@@ -1,10 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Happy Anniversary</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ghifarel ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia, serif;
+}
+
+body{
+height:100vh;
+background:linear-gradient(
+135deg,
+#f8f1e7,
+#f2e2ce,
+#e8d5c4
+);
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.container{
+text-align:center;
+padding:30px;
+width:90%;
+max-width:400px;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(10px);
+border-radius:25px;
+box-shadow:0 8px 30px rgba(0,0,0,0.15);
+}
+
+h1{
+font-size:2rem;
+color:#7a5c45;
+margin-bottom:10px;
+}
+
+p{
+color:#6f5747;
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+outline:none;
+font-size:1rem;
+text-align:center;
+margin-bottom:15px;
+}
+
+button{
+background:#b68b5e;
+color:white;
+border:none;
+padding:14px 28px;
+border-radius:15px;
+font-size:1rem;
+cursor:pointer;
+}
+
+button:hover{
+opacity:.9;
+}
+
+#error{
+margin-top:15px;
+color:#c44;
+font-size:.9rem;
+}
+
+#nextPage{
+display:none;
+}
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 6s linear infinite;
+opacity:.5;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-120vh);
+}
+}
+</style>
 </head>
+
 <body>
-<h1>Happy Anniversary Ghifarel ❤️</h1>
-<p>From Alina</p>
+
+<div class="container" id="loginPage">
+<h1>To My Favorite Person,</h1>
+<p>Ghifarel ❤️</p>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button onclick="checkPassword()">
+Open
+</button>
+
+<div id="error"></div>
+</div>
+
+<div class="container" id="nextPage">
+<h1>Welcome ❤️</h1>
+
+<p>
+You found the password.
+<br><br>
+A little surprise is waiting for you.
+</p>
+</div>
+
+<script>
+
+function checkPassword(){
+
+const pass =
+document.getElementById("password").value;
+
+if(pass==="230625"){
+
+document.getElementById("loginPage").style.display="none";
+document.getElementById("nextPage").style.display="block";
+
+}else{
+
+document.getElementById("error").innerHTML=
+"Hint: The day our story began 🤍";
+
+}
+
+}
+
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="🤍";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*4+4)+"s";
+
+document.body.appendChild(heart);
+
+}
+</script>
+
 </body>
 </html>
