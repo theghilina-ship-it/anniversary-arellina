@@ -1,173 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Ghifarel ❤️</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Georgia, serif;
 }
 
 body{
+font-family:Arial, sans-serif;
+background:#f7efe7;
+color:#4b382f;
 height:100vh;
-background:linear-gradient(
-135deg,
-#f8f1e7,
-#f2e2ce,
-#e8d5c4
-);
-display:flex;
-justify-content:center;
-align-items:center;
 overflow:hidden;
 }
 
-.container{
+.screen{
+display:none;
+height:100vh;
+width:100%;
+align-items:center;
+justify-content:center;
 text-align:center;
-padding:30px;
+padding:25px;
+}
+
+.active{
+display:flex;
+}
+
+.card{
+background:rgba(255,255,255,.65);
+backdrop-filter:blur(12px);
+border-radius:30px;
+padding:35px;
 width:90%;
-max-width:400px;
-background:rgba(255,255,255,0.25);
-backdrop-filter:blur(10px);
-border-radius:25px;
-box-shadow:0 8px 30px rgba(0,0,0,0.15);
+max-width:420px;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
 }
 
 h1{
-font-size:2rem;
-color:#7a5c45;
-margin-bottom:10px;
+font-size:28px;
+margin-bottom:15px;
+}
+
+h2{
+margin-bottom:15px;
 }
 
 p{
-color:#6f5747;
-margin-bottom:25px;
+line-height:1.7;
+margin-bottom:20px;
 }
 
 input{
 width:100%;
 padding:15px;
-border:none;
 border-radius:15px;
-outline:none;
-font-size:1rem;
+border:none;
 text-align:center;
+font-size:18px;
 margin-bottom:15px;
 }
 
 button{
-background:#b68b5e;
-color:white;
 border:none;
-padding:14px 28px;
-border-radius:15px;
-font-size:1rem;
-cursor:pointer;
+background:#a77b52;
+color:white;
+padding:14px 25px;
+border-radius:20px;
+font-size:16px;
 }
 
-button:hover{
-opacity:.9;
-}
-
-#error{
-margin-top:15px;
-color:#c44;
-font-size:.9rem;
-}
-
-#nextPage{
-display:none;
+button:active{
+transform:scale(.96);
 }
 
 .heart{
 position:absolute;
-font-size:20px;
-animation:float 6s linear infinite;
-opacity:.5;
+animation:float 6s infinite;
+opacity:.4;
 }
 
 @keyframes float{
-0%{
+from{
 transform:translateY(100vh);
 }
-100%{
-transform:translateY(-120vh);
+to{
+transform:translateY(-100vh);
 }
 }
+
+
+.envelope{
+font-size:90px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-15px);
+}
+}
+
+
+.photo{
+width:90%;
+max-height:55vh;
+object-fit:contain;
+border-radius:25px;
+margin-bottom:20px;
+}
+
+.caption{
+font-size:17px;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="container" id="loginPage">
+
+<div id="password" class="screen active">
+
+<div class="card">
+
 <h1>To My Favorite Person,</h1>
-<p>Ghifarel ❤️</p>
 
-<input
-type="password"
-id="password"
-placeholder="Enter Password">
+<h2>Ghifarel ❤️</h2>
 
-<button onclick="checkPassword()">
+<input id="pass" placeholder="Enter password">
+
+<button onclick="checkPass()">
 Open
 </button>
 
-<div id="error"></div>
+<p id="error"></p>
+
 </div>
 
-<div class="container" id="nextPage">
-<h1>Welcome ❤️</h1>
+</div>
+<!-- ENVELOPE -->
+<div id="envelope" class="screen">
+
+<div class="card">
+
+<div class="envelope">✉️</div>
+
+<h1>A Letter For Ghifarel</h1>
 
 <p>
-You found the password.
+From Alina ❤️
 <br><br>
-A little surprise is waiting for you.
+One year. Many memories.
 </p>
+
+<button onclick="openVoice()">
+Open Letter
+</button>
+
 </div>
 
+</div>
+
+
+<!-- VOICE -->
+<div id="voice" class="screen">
+
+<div class="card">
+
+<h1>🎙️ A Message From Alina</h1>
+
+<p>
+Before you continue...
+</p>
+
+<button onclick="openVoiceLink()">
+Play Voice Note
+</button>
+
+<br><br>
+
+<button onclick="openLetter()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- LETTER -->
+<div id="letter" class="screen">
+
+<div class="card">
+
+<h1>Hai Ghifarelku ❤️</h1>
+
+<p class="caption">
+
+Tidak terasa sudah satu tahun sejak 23 Juni 2025.
+
+<br><br>
+
+Lucu juga kalau diingat-ingat lagi.
+
+Berawal dari Kak Sumi yang nanya-nanya soal kamu ke aku,
+Dafiq yang jadi awal mula interaksi kita,
+dan pesan minta maaf karena nggak ngajak ngobrol pas awal ketemu karena malu.
+
+<br><br>
+
+Nggak nyangka hal sederhana itu bisa membawa kita sampai sejauh ini.
+
+<br><br>
+
+Selama satu tahun ini tentu nggak selalu sempurna.
+Ada hari yang menyenangkan, ada juga hari yang sulit.
+
+Ada berantem, ada masa yang nggak mudah.
+
+Tapi aku bersyukur kita masih ada di sini.
+
+<br><br>
+
+Terima kasih sudah selalu berusaha hadir.
+
+Terima kasih untuk perjuangan kamu yang selalu anter-jemput aku walaupun jaraknya lebih dari 12 km.
+
+Terima kasih untuk perhatian kecil yang mungkin kamu anggap biasa.
+
+<br><br>
+
+Aku nggak tahu masa depan akan seperti apa.
+
+Tapi aku tahu, aku bersyukur pernah ketemu kamu.
+
+<br><br>
+
+Happy 1st Anniversary, Ghifarel ❤️
+
+<br><br>
+
+— Alina
+
+</p>
+
+<button onclick="nextPhoto()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+
+
+<!-- PHOTO STORY -->
+
+<div id="story" class="screen">
+
+<div class="card">
+
+<img id="storyImg" class="photo">
+
+<p id="storyText" class="caption"></p>
+
+<button onclick="nextPhoto()">
+Next →
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- SONG -->
+
+<div id="song" class="screen">
+
+<div class="card">
+
+<h1>🎵 Our Song</h1>
+
+<p>
+A little song for this moment.
+</p>
+
+<button onclick="song()">
+Play Our Song
+</button>
+
+<br><br>
+
+<button onclick="ending()">
+Continue →
+</button>
+
+</div>
+
+</div>
+
+
+
+
+<!-- ENDING -->
+
+<div id="ending" class="screen">
+
+<div class="card">
+
+<h1>Happy 1st Anniversary ❤️</h1>
+
+<p>
+
+One year down.
+
+<br><br>
+
+Thank you for being part of my favorite year so far.
+
+<br><br>
+
+— Alina
+
+</p>
+
+</div>
+
+</div>
 <script>
 
-function checkPassword(){
+function showPage(id){
 
-const pass =
-document.getElementById("password").value;
+document.querySelectorAll(".screen")
+.forEach(x=>x.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+
+}
+
+
+
+function checkPass(){
+
+let pass =
+document.getElementById("pass").value;
+
 
 if(pass==="230625"){
 
-document.getElementById("loginPage").style.display="none";
-document.getElementById("nextPage").style.display="block";
+showPage("envelope");
 
 }else{
 
-document.getElementById("error").innerHTML=
-"Hint: The day our story began 🤍";
+document.getElementById("error").innerHTML =
+"Hint: tanggal yang berarti 🤍";
 
 }
 
 }
 
-for(let i=0;i<20;i++){
 
-let heart=document.createElement("div");
 
-heart.classList.add("heart");
+// VOICE NOTE GOOGLE DRIVE
+function openVoice(){
 
-heart.innerHTML="🤍";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=
-(Math.random()*4+4)+"s";
-
-document.body.appendChild(heart);
+showPage("voice");
 
 }
+
+
+function openVoiceLink(){
+
+window.open(
+"https://drive.google.com/file/d/1t8w-SpevfGmeuE75l9xiCeyszcCY95bu/view",
+"_blank"
+);
+
+}
+
+
+
+// LETTER
+
+let index = 0;
+
+
+const photos = [
+
+{
+img:"Screenshot_20260621_210106_Instagram.jpg",
+text:"Berawal dari pesan minta maaf karena nggak ngajak ngobrol pas awal ketemu karena malu. Nggak nyangka dari situ semuanya mulai."
+},
+
+{
+img:"IMG-20250510-WA0071.jpg",
+text:"Waktu itu mungkin cuma pertemuan biasa, tapi ternyata jadi awal dari banyak cerita."
+},
+
+{
+img:"20250516_160543(0).jpg",
+text:"Salah satu core memory. First time diajak jalan dan keluar bareng."
+},
+
+{
+img:"20250817_112247.jpg",
+text:"Salah satu hari spesial yang senang bisa aku rayakan bareng kamu."
+},
+
+{
+img:"20250817_122314.jpg",
+text:"Momen kecil yang sekarang jadi kenangan besar."
+},
+
+{
+img:"IMG_20260120_203957_892.webp",
+text:"Thank you udah bikin hari spesial terasa lebih spesial."
+},
+
+{
+img:"20260120_152002.jpg",
+text:"Salah satu memori yang bakal selalu aku ingat."
+},
+
+{
+img:"IMG-20260521-WA0085.jpg",
+text:"Banyak hal yang sudah kita lewati selama satu tahun ini."
+},
+
+{
+img:"20260503_111926(1).jpg",
+text:"Plot twist terbaik: ternyata kita bisa sampai sejauh ini."
+},
+
+{
+img:"IMG-20250914-WA0098.jpg",
+text:"One year down. Still my favorite person ❤️"
+}
+
+];
+
+
+
+function openLetter(){
+
+showPage("letter");
+
+}
+
+
+
+function nextPhoto(){
+
+if(document.getElementById("letter")
+.classList.contains("active")){
+
+index=0;
+showPhoto();
+
+return;
+
+}
+
+
+index++;
+
+if(index < photos.length){
+
+showPhoto();
+
+}else{
+
+showPage("song");
+
+}
+
+}
+
+
+
+function showPhoto(){
+
+showPage("story");
+
+
+document.getElementById("storyImg")
+.src = photos[index].img;
+
+
+document.getElementById("storyText")
+.innerHTML = photos[index].text;
+
+}
+
+
+
+// Spotify
+
+function song(){
+
+window.open(
+"https://open.spotify.com/track/7JOyY9GA3P2Evx50oetDKb",
+"_blank"
+);
+
+}
+
+
+
+function ending(){
+
+showPage("ending");
+
+}
+
+
+
+// floating hearts
+
+for(let i=0;i<18;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="♡";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(h);
+
+}
+
+
 </script>
+
 
 </body>
 </html>
