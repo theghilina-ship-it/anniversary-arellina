@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Caveat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Caveat:wght@600&display=swap');
 
 *{
 margin:0;
@@ -9,26 +9,24 @@ box-sizing:border-box;
 body{
 font-family:'Poppins',sans-serif;
 background:#f8f3ed;
-color:#3f3f3f;
+color:#444;
 overflow-x:hidden;
-min-height:100vh;
 }
 
-/* PAPER BACKGROUND */
+/* Background aesthetic */
 
 body::before{
 content:"";
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 20% 20%, rgba(255,192,203,.15), transparent 25%),
-radial-gradient(circle at 80% 30%, rgba(221,184,146,.15), transparent 25%),
-radial-gradient(circle at 50% 80%, rgba(255,228,225,.15), transparent 25%);
-pointer-events:none;
+radial-gradient(circle at 15% 20%, rgba(255,192,203,.18), transparent 20%),
+radial-gradient(circle at 85% 25%, rgba(221,184,146,.18), transparent 20%),
+radial-gradient(circle at 50% 80%, rgba(255,228,225,.2), transparent 25%);
 z-index:-1;
 }
 
-/* PAGE */
+/* Pages */
 
 .page{
 display:none;
@@ -43,114 +41,82 @@ flex-direction:column;
 display:flex;
 }
 
-/* SCRAPBOOK CARD */
+/* Cover */
 
-.card{
-background:#fffdfb;
-width:100%;
+.scrapbook{
+background:white;
+padding:50px;
 max-width:700px;
-padding:40px;
-border-radius:24px;
-box-shadow:
-0 15px 35px rgba(0,0,0,.08);
+width:100%;
+text-align:center;
+border-radius:28px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
 position:relative;
 transform:rotate(-1deg);
 }
 
-/* TAPE */
+.scrapbook::before{
+content:"";
+position:absolute;
+top:-18px;
+left:50%;
+transform:translateX(-50%) rotate(-5deg);
+width:120px;
+height:30px;
+background:rgba(255,240,200,.9);
+}
+
+.sticker{
+font-size:32px;
+position:absolute;
+top:20px;
+right:20px;
+}
+
+h1{
+font-family:'Playfair Display',serif;
+font-size:52px;
+margin-bottom:15px;
+}
+
+h2{
+font-family:'Playfair Display',serif;
+margin-bottom:15px;
+}
+
+h3{
+margin-bottom:15px;
+}
+
+p{
+line-height:1.8;
+margin-bottom:15px;
+}
+
+/* Card */
+
+.card{
+background:white;
+padding:40px;
+max-width:650px;
+width:100%;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+position:relative;
+}
 
 .card::before{
 content:"";
 position:absolute;
 top:-15px;
 left:50%;
-transform:translateX(-50%) rotate(-4deg);
+transform:translateX(-50%) rotate(-6deg);
 width:110px;
-height:30px;
-background:rgba(255,240,200,.8);
-box-shadow:0 2px 6px rgba(0,0,0,.1);
+height:25px;
+background:rgba(255,240,200,.9);
 }
 
-/* TITLES */
-
-h1,h2{
-font-family:'Playfair Display',serif;
-margin-bottom:15px;
-text-align:center;
-}
-
-h1{
-font-size:42px;
-}
-
-h2{
-font-size:28px;
-}
-
-p{
-line-height:1.9;
-margin-bottom:15px;
-}
-
-/* INPUT */
-
-input{
-width:100%;
-padding:16px;
-border:none;
-background:#f4f1ec;
-border-radius:15px;
-margin-top:15px;
-margin-bottom:20px;
-font-size:16px;
-}
-
-/* BUTTON */
-
-button,
-.btn{
-display:inline-block;
-padding:14px 26px;
-border:none;
-border-radius:14px;
-background:#d8b08c;
-color:white;
-text-decoration:none;
-cursor:pointer;
-transition:.3s;
-font-weight:500;
-}
-
-button:hover,
-.btn:hover{
-transform:translateY(-3px);
-}
-
-/* ENVELOPE */
-
-.envelope{
-font-size:110px;
-margin-bottom:20px;
-animation:float 2s ease-in-out infinite;
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-100%{
-transform:translateY(0);
-}
-
-}
-
-/* LETTER */
+/* Letter */
 
 .letter{
 background:white;
@@ -167,7 +133,7 @@ content:"";
 position:absolute;
 top:-15px;
 left:40px;
-width:90px;
+width:100px;
 height:25px;
 background:rgba(255,240,200,.9);
 transform:rotate(-6deg);
@@ -175,23 +141,132 @@ transform:rotate(-6deg);
 
 .letter h2{
 font-family:'Caveat',cursive;
-font-size:40px;
-text-align:left;
+font-size:42px;
 }
 
-/* TIMER */
+/* Input */
+
+input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#f4f1ec;
+margin-top:15px;
+margin-bottom:20px;
+font-size:16px;
+}
+
+/* Buttons */
+
+button,
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:#d8b08c;
+border:none;
+border-radius:15px;
+color:white;
+text-decoration:none;
+cursor:pointer;
+transition:.3s;
+font-size:15px;
+}
+
+button:hover,
+.btn:hover{
+transform:translateY(-3px);
+}
+
+/* Envelope */
+
+.envelope{
+font-size:120px;
+margin-bottom:20px;
+animation:float 2s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* Polaroid */
+
+.polaroid{
+background:white;
+padding:20px;
+width:90%;
+max-width:500px;
+border-radius:10px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+text-align:center;
+transform:rotate(-2deg);
+position:relative;
+}
+
+.polaroid::before{
+content:"";
+position:absolute;
+top:-15px;
+left:50%;
+transform:translateX(-50%) rotate(-5deg);
+width:100px;
+height:25px;
+background:rgba(255,240,200,.9);
+}
+
+.polaroid img{
+width:100%;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+/* Stats */
+
+.bigStats{
+font-size:48px;
+font-weight:700;
+margin:30px 0;
+}
+
+/* Ticket */
+
+.ticket{
+background:white;
+padding:40px;
+max-width:700px;
+width:100%;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+text-align:center;
+border:3px dashed #d8b08c;
+}
+
+/* Timer */
 
 #loveTimer{
 position:fixed;
-bottom:20px;
+bottom:15px;
 left:50%;
 transform:translateX(-50%);
 background:white;
 padding:14px 22px;
 border-radius:20px;
 box-shadow:0 8px 25px rgba(0,0,0,.08);
-font-size:13px;
 text-align:center;
+font-size:13px;
 z-index:999;
 }
 
@@ -201,38 +276,23 @@ margin-top:5px;
 font-weight:600;
 }
 
-/* SCRAPBOOK DECOR */
-
-.sticker{
-position:absolute;
-font-size:24px;
-}
-
-.sticker1{
-top:20px;
-left:20px;
-}
-
-.sticker2{
-bottom:20px;
-right:20px;
-}
-
-/* MOBILE */
+/* Mobile */
 
 @media(max-width:768px){
 
+h1{
+font-size:34px;
+}
+
+.scrapbook,
 .card,
-.letter{
+.letter,
+.ticket{
 padding:25px;
 }
 
-h1{
-font-size:30px;
-}
-
-h2{
-font-size:24px;
+.bigStats{
+font-size:36px;
 }
 
 }
