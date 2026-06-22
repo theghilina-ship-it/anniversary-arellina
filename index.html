@@ -1,138 +1,27 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For Ghifarel ❤️</title>
 
-<style>
+<link rel="stylesheet" href="style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial, sans-serif;
-background:#f7efe7;
-color:#4b382f;
-height:100vh;
-overflow:hidden;
-}
-
-.screen{
-display:none;
-height:100vh;
-width:100%;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:25px;
-}
-
-.active{
-display:flex;
-}
-
-.card{
-background:rgba(255,255,255,.65);
-backdrop-filter:blur(12px);
-border-radius:30px;
-padding:35px;
-width:90%;
-max-width:420px;
-max-height:85vh;
-overflow-y:auto;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-}
-
-h1{
-font-size:28px;
-margin-bottom:15px;
-}
-
-h2{
-margin-bottom:15px;
-}
-
-p{
-line-height:1.7;
-margin-bottom:20px;
-}
-
-input{
-width:100%;
-padding:15px;
-border-radius:15px;
-border:none;
-text-align:center;
-font-size:18px;
-margin-bottom:15px;
-}
-
-button{
-border:none;
-background:#a77b52;
-color:white;
-padding:14px 25px;
-border-radius:20px;
-font-size:16px;
-}
-
-button:active{
-transform:scale(.96);
-}
-
-.heart{
-position:absolute;
-animation:float 6s infinite;
-opacity:.4;
-}
-
-@keyframes float{
-from{
-transform:translateY(100vh);
-}
-to{
-transform:translateY(-100vh);
-}
-}
-
-
-.envelope{
-font-size:90px;
-animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-50%{
-transform:translateY(-15px);
-}
-}
-
-
-.photo{
-width:90%;
-max-height:55vh;
-object-fit:contain;
-border-radius:25px;
-margin-bottom:20px;
-}
-
-.caption{
-font-size:17px;
-}
-
-</style>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- TIMER -->
+<div id="loveTimer">
+❤️ Together For<br>
+<span id="timer"></span>
+</div>
 
-<div id="password" class="screen active">
+<!-- PASSWORD PAGE -->
+<section class="page active" id="passwordPage">
 
 <div class="card">
 
@@ -140,423 +29,194 @@ font-size:17px;
 
 <h2>Ghifarel ❤️</h2>
 
-<input id="pass" placeholder="Enter password">
+<p>
+Enter Password
+</p>
 
-<button onclick="checkPass()">
+<input
+type="password"
+id="passwordInput"
+placeholder="••••••"
+/>
+
+<button onclick="checkPassword()">
 Open
 </button>
 
-<p id="error"></p>
-
 </div>
 
-</div>
-<!-- ENVELOPE -->
-<div id="envelope" class="screen">
+</section>
+
+<!-- ENVELOPE PAGE -->
+<section class="page" id="envelopePage">
 
 <div class="card">
 
-<div class="envelope">✉️</div>
+<div class="envelope">
+✉️
+</div>
 
-<h1>A Letter For Ghifarel</h1>
+<h2>A Little Letter For You</h2>
 
-<p>
-From Alina ❤️
-<br><br>
-One year. Many memories.
-</p>
-
-<button onclick="openVoice()">
-Open Letter
+<button onclick="showPage('voicePage')">
+Open Envelope
 </button>
 
 </div>
 
-</div>
+</section>
 
-
-<!-- VOICE -->
-<div id="voice" class="screen">
+<!-- VOICE NOTE -->
+<section class="page" id="voicePage">
 
 <div class="card">
 
-<h1>🎙️ A Message From Alina</h1>
+<h2>Before We Continue...</h2>
 
 <p>
-Before you continue...
+I left a little message for you.
 </p>
 
-<button onclick="openVoiceLink()">
-Play Voice Note
-</button>
+<a
+href="https://drive.google.com/file/d/1t8w-SpevfGmeuE75l9xiCeyszcCY95bu/view?usp=drivesdk"
+target="_blank"
+class="btn"
+>
+🎙️ Play Voice Note
+</a>
 
-<br><br>
-
-<button onclick="openLetter()">
-Continue →
+<button onclick="showPage('songPage')">
+Continue
 </button>
 
 </div>
 
+</section>
+
+<!-- SONG PAGE -->
+<section class="page" id="songPage">
+
+<div class="card">
+
+<h2>Our Song 🎵</h2>
+
+<p>
+Tonight I Celebrate My Love
+</p>
+
+<a
+href="https://open.spotify.com/track/7JOyY9GA3P2Evx50oetDKb?si=RXZ96EZMSJ6nGLStxp0fJQ"
+target="_blank"
+class="btn"
+>
+Play On Spotify
+</a>
+
+<button onclick="showPage('letterPage')">
+Continue
+</button>
+
 </div>
 
-
+</section>
 
 <!-- LETTER -->
-<div id="letter" class="screen">
+<section class="page" id="letterPage">
 
-<div class="card">
+<div class="letter">
 
-<h1>Hai Ghifarelku ❤️</h1>
+<h2>Hai Ghifarelku,</h2>
 
-<p class="caption">
+<p>
+Ga terasa sudah satu tahun sejak 23 Juni 2025.
+</p>
 
-Tidak terasa sudah satu tahun sejak 23 Juni 2025.
+<p>
+Kalau dipikir-pikir, semuanya berawal dari hal yang sederhana.
+Dari Kak Sumi yang nanya-nanya soal kamu ke aku,
+Dafiq yang menjadi katalis dimulainya interaksi kita,
+dari rasa penasaran,
+dari waktu yang terus berjalan sampai akhirnya menjadi begitu banyak kenangan yang kita simpan hari ini.
+</p>
 
-<br><br>
+<p>
+Selama satu tahun ini, tentu ga selalu sempurna.
+Ada hari-hari yang menyenangkan,
+ada juga hari-hari yang sulit,
+entah itu kita berantem,
+break,
+dan sebagainya.
+</p>
 
-Lucu juga kalau diingat-ingat lagi.
+<p>
+Tapi dari semua hal yang sudah kita lewati,
+aku bersyukur karena kita tetap ada di sini.
+</p>
 
-Berawal dari Kak Sumi yang nanya-nanya soal kamu ke aku,
-Dafiq yang jadi awal mula interaksi kita,
-dan pesan minta maaf karena nggak ngajak ngobrol pas awal ketemu karena malu.
+<p>
+Terima kasih untuk setiap waktu yang sudah kamu luangkan.
+</p>
 
-<br><br>
+<p>
+Terima kasih untuk setiap perjuangan kamu selalu anter-jemput aku yang berjarak lebih dari 12 km.
+</p>
 
-Nggak nyangka hal sederhana itu bisa membawa kita sampai sejauh ini.
+<p>
+Terima kasih untuk setiap perhatian kecil yang mungkin tidak selalu kamu sadari.
+</p>
 
-<br><br>
+<p>
+Terima kasih karena sudah menjadi seseorang yang membuat hari-hariku terasa lebih hangat.
+</p>
 
-Selama satu tahun ini tentu nggak selalu sempurna.
-Ada hari yang menyenangkan, ada juga hari yang sulit.
+<p>
+Aku ga akan tahu apa yang akan terjadi di masa depan.
+Tetapi hari ini,
+yang ingin aku sampaikan hanyalah bahwa aku sangat bersyukur pernah bertemu denganmu.
+</p>
 
-Ada berantem, ada masa yang nggak mudah.
+<p>
+Dan setelah 365 hari berlalu,
+aku masih merasa bahwa bertemu denganmu adalah salah satu hal terbaik yang pernah terjadi dalam hidupku.
+</p>
 
-Tapi aku bersyukur kita masih ada di sini.
-
-<br><br>
-
-Terima kasih sudah selalu berusaha hadir.
-
-Terima kasih untuk perjuangan kamu yang selalu anter-jemput aku walaupun jaraknya lebih dari 12 km.
-
-Terima kasih untuk perhatian kecil yang mungkin kamu anggap biasa.
-
-<br><br>
-
-Aku nggak tahu masa depan akan seperti apa.
-
-Tapi aku tahu, aku bersyukur pernah ketemu kamu.
-
-<br><br>
-
+<p>
 Happy 1st Anniversary, Ghifarel ❤️
-
-<br><br>
-
-— Alina
-
 </p>
 
-<button onclick="nextPhoto()">
+<p>
+Dengan penuh rasa sayang,<br>
+Alina
+</p>
+
+<button onclick="showPage('photosPage')">
 Continue →
 </button>
 
 </div>
 
-</div>
+</section>
 
-
-
-
-<!-- PHOTO STORY -->
-
-<div id="story" class="screen">
+<!-- PHOTO PAGE -->
+<section class="page" id="photosPage">
 
 <div class="card">
 
-<img id="storyImg" class="photo">
-
-<p id="storyText" class="caption"></p>
-
-<button onclick="nextPhoto()">
-Next →
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- SONG -->
-
-<div id="song" class="screen">
-
-<div class="card">
-
-<h1>🎵 Our Song</h1>
+<h2>Our Memories 📸</h2>
 
 <p>
-A little song for this moment.
+Di bagian berikutnya kita akan masuk ke scrapbook foto-foto kenangan.
 </p>
 
-<button onclick="song()">
-Play Our Song
-</button>
-
-<br><br>
-
-<button onclick="ending()">
-Continue →
+<button>
+Coming Soon 😋
 </button>
 
 </div>
 
-</div>
+</section>
 
-
-
-
-<!-- ENDING -->
-
-<div id="ending" class="screen">
-
-<div class="card">
-
-<h1>Happy 1st Anniversary ❤️</h1>
-
-<p>
-
-One year down.
-
-<br><br>
-
-Thank you for being part of my favorite year so far.
-
-<br><br>
-
-— Alina
-
-</p>
-
-</div>
-
-</div>
-<script>
-
-function showPage(id){
-
-document.querySelectorAll(".screen")
-.forEach(x=>x.classList.remove("active"));
-
-document.getElementById(id)
-.classList.add("active");
-
-}
-
-
-
-function checkPass(){
-
-let pass =
-document.getElementById("pass").value;
-
-
-if(pass==="230625"){
-
-showPage("envelope");
-
-}else{
-
-document.getElementById("error").innerHTML =
-"Hint: tanggal yang berarti 🤍";
-
-}
-
-}
-
-
-
-// VOICE NOTE GOOGLE DRIVE
-function openVoice(){
-
-showPage("voice");
-
-}
-
-
-function openVoiceLink(){
-
-window.open(
-"https://drive.google.com/file/d/1t8w-SpevfGmeuE75l9xiCeyszcCY95bu/view",
-"_blank"
-);
-
-}
-
-
-
-// LETTER
-
-let index = 0;
-
-
-const photos = [
-
-{
-img:"Screenshot_20260621_210106_Instagram.jpg",
-text:"Berawal dari pesan minta maaf karena nggak ngajak ngobrol pas awal ketemu karena malu. Nggak nyangka dari situ semuanya mulai."
-},
-
-{
-img:"IMG-20250510-WA0071.jpg",
-text:"Waktu itu mungkin cuma pertemuan biasa, tapi ternyata jadi awal dari banyak cerita."
-},
-
-{
-img:"20250516_160543(0).jpg",
-text:"Salah satu core memory. First time diajak jalan dan keluar bareng."
-},
-
-{
-img:"20250817_112247.jpg",
-text:"Salah satu hari spesial yang senang bisa aku rayakan bareng kamu."
-},
-
-{
-img:"20250817_122314.jpg",
-text:"Momen kecil yang sekarang jadi kenangan besar."
-},
-
-{
-img:"IMG_20260120_203957_892.webp",
-text:"Thank you udah bikin hari spesial terasa lebih spesial."
-},
-
-{
-img:"20260120_152002.jpg",
-text:"Salah satu memori yang bakal selalu aku ingat."
-},
-
-{
-img:"IMG-20260521-WA0085.jpg",
-text:"Banyak hal yang sudah kita lewati selama satu tahun ini."
-},
-
-{
-img:"20260503_111926(1).jpg",
-text:"Plot twist terbaik: ternyata kita bisa sampai sejauh ini."
-},
-
-{
-img:"IMG-20250914-WA0098.jpg",
-text:"One year down. Still my favorite person ❤️"
-}
-
-];
-
-
-
-function openLetter(){
-
-showPage("letter");
-
-}
-
-
-
-function nextPhoto(){
-
-if(document.getElementById("letter")
-.classList.contains("active")){
-
-index=0;
-showPhoto();
-
-return;
-
-}
-
-
-index++;
-
-if(index < photos.length){
-
-showPhoto();
-
-}else{
-
-showPage("song");
-
-}
-
-}
-
-
-
-function showPhoto(){
-
-showPage("story");
-
-
-document.getElementById("storyImg")
-.src = photos[index].img;
-
-
-document.getElementById("storyText")
-.innerHTML = photos[index].text;
-
-}
-
-
-
-// Spotify
-
-function song(){
-
-window.open(
-"https://open.spotify.com/track/7JOyY9GA3P2Evx50oetDKb",
-"_blank"
-);
-
-}
-
-
-
-function ending(){
-
-showPage("ending");
-
-}
-
-
-
-// floating hearts
-
-for(let i=0;i<18;i++){
-
-let h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML="♡";
-
-h.style.left=Math.random()*100+"vw";
-
-h.style.animationDelay=Math.random()*5+"s";
-
-document.body.appendChild(h);
-
-}
-
-
-</script>
-
+<script src="script.js"></script>
 
 </body>
-  <div id="loveTimer">
-❤️ Together for<br>
-<span id="timer"></span>
-</div>
 </html>
