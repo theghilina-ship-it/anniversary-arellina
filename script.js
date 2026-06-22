@@ -16,7 +16,7 @@ alert("Password salah 😋");
 
 }
 
-// PAGE TRANSITION
+// PAGE SYSTEM
 
 function showPage(pageId){
 
@@ -28,11 +28,14 @@ page.classList.remove("active");
 
 document.getElementById(pageId).classList.add("active");
 
-window.scrollTo(0,0);
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
-// RELATIONSHIP TIMER
+// LOVE TIMER
 
 const startDate = new Date("2025-06-23T00:00:00");
 
@@ -42,7 +45,9 @@ const now = new Date();
 
 const diff = now - startDate;
 
-const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+const days = Math.floor(
+diff / (1000 * 60 * 60 * 24)
+);
 
 const hours = Math.floor(
 (diff / (1000 * 60 * 60)) % 24
@@ -57,10 +62,36 @@ const seconds = Math.floor(
 );
 
 document.getElementById("timer").innerHTML =
-`${days} Days • ${hours} Hours • ${minutes} Minutes • ${seconds} Seconds`;
+`${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+const daysCount = document.getElementById("daysCount");
+
+if(daysCount){
+
+daysCount.textContent = days;
+
+}
 
 }
 
 updateTimer();
 
 setInterval(updateTimer,1000);
+
+// ENTER KEY PASSWORD
+
+const passwordInput = document.getElementById("passwordInput");
+
+if(passwordInput){
+
+passwordInput.addEventListener("keypress",function(e){
+
+if(e.key === "Enter"){
+
+checkPassword();
+
+}
+
+});
+
+}
